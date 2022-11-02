@@ -54,11 +54,7 @@ class ChirpController extends Controller
      */
     public function show(Chirp $chirp)
     {
-        $this->authorize('update', $chirp);
-
-        return view('chirps.edit', [
-            'chirp' => $chirp,
-        ]);
+        
     }
 
     /**
@@ -69,7 +65,11 @@ class ChirpController extends Controller
      */
     public function edit(Chirp $chirp)
     {
-        //
+        $this->authorize('update', $chirp);
+
+        return view('chirps.edit', [
+            'chirp' => $chirp,
+        ]);
     }
 
     /**
